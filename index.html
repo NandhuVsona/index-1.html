@@ -1,94 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
+  <style>
+    /* SideBar style */
+    @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+    * {
+      margin: 0;
+      padding: 0%;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    .my-account-container {
+      width: 100vw;
+      height: 100vh;
+      gap: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      padding: 10px 15px;
+    }
+    .my-account-container::before{
+      content:"";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background:linear-gradient(to bottom left, rgb(0, 255, 213),rgb(230, 0, 255));
+      z-index: -1;
+    }
+    .account-container-body{
+      width: 100%;
+      background-color: rgb(255, 255, 255);
+      border-radius: 10px;
+    }
 
-<body>
-    <header>
-        <h1>Welcome to The Little Taco Shop</h1>
-        <nav aria-label="primary-navigation">
-            <ul>
-                <li><a href="#">About LTS</a></li>
-                <li><a href="#">Our Menu</a></li>
-                <li><a href="store-hours.html">Store Hours</a></li>
-                <li><a href="sindex.html">Contact Us</a></li>
-            </ul>
-        </nav>
-        <figure>
-            <img src="images/Food.jpg" alt="food-image" loading="lazy" width="500px" height="300px">
-            <figcaption>Tacos and a Drink</figcaption>
-        </figure>
-    </header>
-    <hr>
-    <main>
-        <h2>About <abbr title="Love of Tacos"> LTS</abbr></h2>
-        <p><abbr title="Love of Tacos"> LTS</abbr>was founded in <time datetime="2022">2022</time> .Our shop was built
-            from a <b>love of
-                tacos..</b>.We hope our shop adds a unique and intersting place to our little town.</p>
-        <h3>Taco Trivia</h3>
-        <aside>
-            <details>
-                <summary>When did tacos first appear in the United Stated?</summary>
-                <p>Jeffrey M.Pilcher,taco historian and professor of history at the University of Minnesots,
-                    says the carliest mention of tacos th the Untted States are in a newspaper
-                    (Source:<cite><a href="https//www.google.com">Click here...</a></cite>)
-                </p>
-            </details>
-        </aside>
-        <hr>
-        <section>
-            <h2>Our Menu</h2>
-            <table border="1px" cellpadding="20px" cellspacing="2px">
-                <caption>Our tacos</caption>
-                <thead>
-                    <tr>
-                        <th>Tacos</th>
-                        <th>Qty</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th rowspan="3">Crunchy</th>
-                        <td>1</td>
-                        <td>$1.50</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>$2.50</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>$3.25</td>
-                    </tr>
-                    <tr>
-                        <th rowspan="3">Soft</th>
-                        <td>1</td>
-                        <td>$2.00</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>$3.50</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>$4.50</td>
-                    </tr>
-                </tbody>
-                <th colspan="3">Chips & Salsa $2</th>
-            </table>
-        </section>
-        <p><a href="#">Back To Top</a></p>
-        <hr>
-    </main>
-    <footer>
-        <p align="center">Copyright&copy; to the Little Taco Shop</p>
-    </footer>
-</body>
+    
+    .my-account-container header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    
+    
+  
+    .my-account-container .settings ul {
+      display: flex;
+      list-style: none;
+      flex-direction: column;
+    }
+    .my-account-container .settings ul li {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+      animation: slide-left 0.3s ease;
+      padding: 15px;
+      -webkit-animation: slide-left 0.3s ease 0.6s;
+      animation-fill-mode: forwards;
+      opacity: 1;
+      border-bottom: 1px groove rgb(216, 216, 216);
+    }
 
+    .my-account-container .settings ul li .left-part p {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .my-account-container .settings ul li .left-part {
+      display: flex;
+      gap: 15px;
+    }
+    .my-account-container .settings ul li .left-part img{
+      filter: invert(0.5);
+      width: 25px;
+    }
+    .my-account-container .settings ul li .arrow-right {
+      opacity: 0.4;
+    }
+     header .left img {
+      width: 30px;
+    }
+    
+    .app-header {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      gap: 10px;
+    }
+    .app-header img {
+      width: 25px;
+    }
+  </style>
+  <body>
+    <div class="my-account-container">
+      <div class="app-header">
+        <img class="svg" src="./frontend/images/app-logo.png" alt="" />
+        <h2>My Account</h2>
+      </div>
+      <div class="account-container-body">
+        
+        <div class="settings">
+          <ul>
+            <li>
+              <div class="left-part">
+                <img class="svg" src="./frontend/icons/edit.svg" alt="" />
+                <div class="info">
+                  <p>Ganesh</p>
+                  <small>Tap to edit username</small>
+                </div>
+              </div>
+              <img
+                class="arrow-right"
+                src="./frontend/icons/arrowright.svg"
+                alt=""
+              />
+            </li>
+            <li>
+              <div class="left-part">
+                <img class="svg" src="./frontend/icons/currency.svg" alt="" />
+                <div class="info">
+                  <p>Currency Sign</p>
+                  <small>Indian Rupee - INR</small>
+                </div>
+              </div>
+              <img
+                class="arrow-right"
+                src="./frontend/icons/arrowright.svg"
+                alt=""
+              />
+            </li>
+  
+            <li>
+              <div class="left-part">
+                <img class="svg" src="./frontend/icons/reset.svg" alt="" />
+                <div class="info">
+                  <p>Reset</p>
+                  <small>Reset app to initial state</small>
+                </div>
+              </div>
+              <img
+                class="arrow-right"
+                src="./frontend/icons/arrowright.svg"
+                alt=""
+              />
+            </li>
+            <li>
+              <div class="left-part">
+                <img class="svg" src="./frontend/icons/logout.svg" alt="" />
+                <div class="info">
+                  <p>Logout</p>
+                  <small>Double click to logout</small>
+                </div>
+              </div>
+              <img
+                class="arrow-right"
+                src="./frontend/icons/arrowright.svg"
+                alt=""
+              />
+            </li>
+            <li>
+              <div class="left-part">
+                <img class="svg" src="./frontend/icons/delete.svg" alt="" />
+                <div class="info">
+                  <p>Delete</p>
+                  <small>Delete my account permenently</small>
+                </div>
+              </div>
+              <img
+                class="arrow-right"
+                src="./frontend/icons/arrowright.svg"
+                alt=""
+              />
+            </li>
+  
+            <li>
+              <div class="left-part">
+                <img class="svg" src="./frontend/icons/privacy.svg" alt="" />
+                <div class="info">
+                  <p>Privacy Policy</p>
+                  <small>Know our privacy policy</small>
+                </div>
+              </div>
+              <img
+                class="arrow-right"
+                src="./frontend/icons/arrowright.svg"
+                alt=""
+              />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
